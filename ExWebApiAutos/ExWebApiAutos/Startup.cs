@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExWebApiAutos.Model;
 using ExWebApiAutos.Model.ExWebApiAutosDb;
+using ExWebApiAutos.Model.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +35,16 @@ namespace ExWebApiAutos
                 options => options.UseSqlServer(
                     Configuration["Data:ExWebApiAutos:ConnectionString"]));
 
+            services.AddDbContext<AppIdentityDbContext>(options => 
+            options.UseSqlServer(
+                Configuration["Data:ExWebApiAutosIdentity:ConnectionString"]));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddTransient<IMarcaRepository, EFMarcaRepository>();
+
             services.AddSwaggerGen(c => 
             { c.SwaggerDoc("v1", new Info { Title = "ExWebApiAutosServices", Version = "v1" });
             });
@@ -50,8 +63,10 @@ namespace ExWebApiAutos
             { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
+            //IdentitySeedData.EnsurePopulated(app);
         }
     }
 }
