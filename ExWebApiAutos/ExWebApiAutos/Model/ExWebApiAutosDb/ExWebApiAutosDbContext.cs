@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace ExWebApiAutos.Model.ExWebApiAutosDb
+namespace ExWebApiAutos
 {
     public partial class ExWebApiAutosDbContext : DbContext
     {
@@ -31,19 +31,51 @@ namespace ExWebApiAutos.Model.ExWebApiAutosDb
         {
             modelBuilder.Entity<TAuto>(entity =>
             {
-                entity.Property(e => e.AutoId).ValueGeneratedNever();
+                entity.HasKey(e => e.AutoId);
 
-                entity.Property(e => e.AutoAnioFab).IsUnicode(false);
+                entity.ToTable("T_auto");
 
-                entity.Property(e => e.AutoColor).IsUnicode(false);
+                entity.Property(e => e.AutoId)
+                    .HasColumnName("auto_id")
+                    .ValueGeneratedNever();
 
-                entity.Property(e => e.AutoNroAsientos).IsUnicode(false);
+                entity.Property(e => e.AutoAnioFab)
+                    .IsRequired()
+                    .HasColumnName("auto_anio_fab")
+                    .HasMaxLength(4)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.AutoPlaca).IsUnicode(false);
+                entity.Property(e => e.AutoColor)
+                    .IsRequired()
+                    .HasColumnName("auto_color")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.AutoTransmision).IsUnicode(false);
+                entity.Property(e => e.AutoNroAsientos)
+                    .IsRequired()
+                    .HasColumnName("auto_nro_asientos")
+                    .HasMaxLength(2)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.AutoVersion).IsUnicode(false);
+                entity.Property(e => e.AutoPlaca)
+                    .IsRequired()
+                    .HasColumnName("auto_placa")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.AutoTransmision)
+                    .IsRequired()
+                    .HasColumnName("auto_transmision")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.AutoVersion)
+                    .IsRequired()
+                    .HasColumnName("auto_version")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MarcaId).HasColumnName("marca_id");
 
                 entity.HasOne(d => d.Marca)
                     .WithMany(p => p.TAuto)
@@ -54,9 +86,19 @@ namespace ExWebApiAutos.Model.ExWebApiAutosDb
 
             modelBuilder.Entity<TMarca>(entity =>
             {
-                entity.Property(e => e.MarcaId).ValueGeneratedNever();
+                entity.HasKey(e => e.MarcaId);
 
-                entity.Property(e => e.MarcaNombre).IsUnicode(false);
+                entity.ToTable("T_marca");
+
+                entity.Property(e => e.MarcaId)
+                    .HasColumnName("marca_id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.MarcaNombre)
+                    .IsRequired()
+                    .HasColumnName("marca_nombre")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
             });
         }
     }

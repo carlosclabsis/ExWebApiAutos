@@ -11,45 +11,45 @@ using Microsoft.AspNetCore.Mvc;
 namespace ExWebApiAutos.Controllers
 {
     [Route("api/[controller]")]
-    public class MarcaController : Controller
+    public class AutoController : Controller
     {
-        private IMarcaRepository repositorio;
-        public MarcaController(IMarcaRepository repo)
+        private IAutoRepository repositorio;
+        public AutoController(IAutoRepository repo)
         {
             repositorio = repo;
         }
         // GET: api/<controller>
         [HttpGet]
-        public IQueryable<TMarca> Get()
+        public IQueryable<TAuto> Get()
         {
             return repositorio.Items;
         }
         // GET api/<controller>/5
-        [HttpGet("{MarcaId}")]
-        public TMarca Get(Guid MarcaId)
+        [HttpGet("{AutoId}")]
+        public TAuto Get(Guid AutoId)
         {
-            return repositorio.Items.Where(p => p.MarcaId == MarcaId).FirstOrDefault();
+            return repositorio.Items.Where(p => p.AutoId == AutoId).FirstOrDefault();
         }
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post([FromBody]TMarca marca)
+        public IActionResult Post([FromBody]TAuto auto)
         {
-            repositorio.Save(marca);
+            repositorio.Save(auto);
             return Ok(true);
         }
         // PUT api/<controller>/5
-        [HttpPut("{MarcaId}")]
-        public IActionResult Put(Guid MarcaId, [FromBody]TMarca marca)
+        [HttpPut("{AutoId}")]
+        public IActionResult Put(Guid AutoId, [FromBody]TAuto auto)
         {
-            marca.MarcaId = MarcaId;
-            repositorio.Save(marca);
+            auto.AutoId = AutoId;
+            repositorio.Save(auto);
             return Ok(true);
         }
         // DELETE api/<controller>/5
-        [HttpDelete("{MarcaId}")]
-        public IActionResult Delete(Guid MarcaId)
+        [HttpDelete("{AutoId}")]
+        public IActionResult Delete(Guid AutoId)
         {
-            repositorio.Delete(MarcaId);
+            repositorio.Delete(AutoId);
             return Ok(true);
         }
     }

@@ -8,13 +8,13 @@ namespace ExWebApiAutos.Model.Repositories
 {
     public class EFMarcaRepository : IMarcaRepository
     {
-        public IQueryable<TMarca> Marcas => context.TMarca;
+        public IQueryable<TMarca> Items => context.TMarca;
         private ExWebApiAutosDbContext context;
         public EFMarcaRepository(ExWebApiAutosDbContext ctx)
         {
             context = ctx;
         }
-        public void SaveMarca(TMarca marca)
+        public void Save(TMarca marca)
         {
             if (marca.MarcaId == Guid.Empty)
             {
@@ -32,7 +32,7 @@ namespace ExWebApiAutos.Model.Repositories
             }
             context.SaveChangesAsync();
         }
-        public void DeleteMarca(Guid MarcaID)
+        public void Delete(Guid MarcaID)
         {
             TMarca dbEntry = context.TMarca
             .FirstOrDefault(p => p.MarcaId == MarcaID);

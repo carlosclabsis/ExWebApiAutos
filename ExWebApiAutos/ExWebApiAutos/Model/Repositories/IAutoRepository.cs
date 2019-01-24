@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExWebApiAutos.Model.Repositories
 {
-    public interface IMarcaRepository : IRepository<TMarca>
+    public interface IAutoRepository : IRepository<TAuto>
     {
         //IQueryable<TMarca> FilterMarcas(int pageSize, int page);
 
