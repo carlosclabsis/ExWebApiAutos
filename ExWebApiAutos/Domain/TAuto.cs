@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ExWebApiAutos
+namespace Domain
 {
     public partial class TAuto
     {

@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.IServices;
+using Application.Services;
+using Domain;
+using Domain.IRepositories;
 using ExWebApiAutos.Model;
-using ExWebApiAutos.Model.ExWebApiAutosDb;
+
 using ExWebApiAutos.Model.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,8 +47,13 @@ namespace ExWebApiAutos
                 .AddEntityFrameworkStores<AppIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
+            //Repositorios
             services.AddTransient<IMarcaRepository, EFMarcaRepository>();
             services.AddTransient<IAutoRepository, EFAutoRepository>();
+
+            //Servicios
+            services.AddTransient<IMarcaService, MarcaService>();
+            services.AddTransient<IAutoService, AutoService>();
 
             services.AddSwaggerGen(c => 
             { c.SwaggerDoc("v1", new Info { Title = "ExWebApiAutosServices", Version = "v1" });

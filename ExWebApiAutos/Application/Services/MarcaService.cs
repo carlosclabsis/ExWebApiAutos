@@ -1,6 +1,8 @@
 ﻿using Application.DTOs;
 using Application.IServices;
-using ExWebApiAutos.Model.Repositories;
+using Domain;
+using Domain.IRepositories;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +12,7 @@ namespace Application.Services
     public class MarcaService : IMarcaService
     {
         IMarcaRepository repository;
-        public ProyectoService(IProyectoRepository repo)
+        public MarcaService(IMarcaRepository repo)
         {
             repository = repo;
         }

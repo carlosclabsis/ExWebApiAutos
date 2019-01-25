@@ -1,10 +1,10 @@
-﻿using ExWebApiAutos.Model.ExWebApiAutosDb;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ExWebApiAutos.Model.Repositories
+namespace Domain.IRepositories
 {
     public interface IMarcaRepository : IRepository<TMarca>
     {

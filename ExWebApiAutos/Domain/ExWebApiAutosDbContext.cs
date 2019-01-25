@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace ExWebApiAutos
+namespace Domain 
 {
     public partial class ExWebApiAutosDbContext : DbContext
     {

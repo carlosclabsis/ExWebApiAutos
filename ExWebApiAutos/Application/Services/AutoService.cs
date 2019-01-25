@@ -1,16 +1,17 @@
 ﻿using Application.DTOs;
 using Application.IServices;
-using ExWebApiAutos.Model.Repositories;
+using Domain;
+using Domain.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Application.Services
 {
-    public class MarcaService : IMarcaService
+    public class AutoService : IAutoService
     {
-        IMarcaRepository repository;
-        public ProyectoService(IProyectoRepository repo)
+        IAutoRepository repository;
+        public AutoService(IAutoRepository repo)
         {
             repository = repo;
         }
@@ -18,18 +19,18 @@ namespace Application.Services
         {
             repository.Delete(entityId);
         }
-        public IList<MarcaDTO> GetAll()
+        public IList<AutoDTO> GetAll()
         {
-            return Builders.GenericBuilder.builderListEntityDTO<MarcaDTO, TMarca>(repository.Items);
+            return Builders.GenericBuilder.builderListEntityDTO<AutoDTO, TAuto>(repository.Items);
         }
-        public void Insert(MarcaDTO entityDTO)
+        public void Insert(AutoDTO entityDTO)
         {
-            var entity = Builders.GenericBuilder.builderDTOEntity<TMarca, MarcaDTO>(entityDTO);
+            var entity = Builders.GenericBuilder.builderDTOEntity<TAuto, AutoDTO>(entityDTO);
             repository.Save(entity);
         }
-        public void Update(MarcaDTO entityDTO)
+        public void Update(AutoDTO entityDTO)
         {
-            var entity = Builders.GenericBuilder.builderDTOEntity<TMarca, MarcaDTO>(entityDTO);
+            var entity = Builders.GenericBuilder.builderDTOEntity<TAuto, AutoDTO>(entityDTO);
             repository.Save(entity);
         }
     }

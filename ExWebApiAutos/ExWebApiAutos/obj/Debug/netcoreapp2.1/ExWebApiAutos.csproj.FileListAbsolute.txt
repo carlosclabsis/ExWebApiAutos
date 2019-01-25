@@ -12,3 +12,8 @@ D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\obj\Debu
 D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\bin\Debug\netcoreapp2.1\ExWebApiAutos.pdb
 D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\obj\Debug\netcoreapp2.1\ExWebApiAutos.dll
 D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\obj\Debug\netcoreapp2.1\ExWebApiAutos.pdb
+D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\bin\Debug\netcoreapp2.1\Application.dll
+D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\bin\Debug\netcoreapp2.1\Domain.dll
+D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\bin\Debug\netcoreapp2.1\Application.pdb
+D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\bin\Debug\netcoreapp2.1\Domain.pdb
+D:\GITHUB programas\clonacion\ExWebApiAutos\ExWebApiAutos\ExWebApiAutos\obj\Debug\netcoreapp2.1\ExWebApiAutos.csproj.CopyComplete

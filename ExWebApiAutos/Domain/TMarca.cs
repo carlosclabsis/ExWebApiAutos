@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ExWebApiAutos.Model.ExWebApiAutosDb
+namespace Domain
 {
     public partial class TMarca
     {

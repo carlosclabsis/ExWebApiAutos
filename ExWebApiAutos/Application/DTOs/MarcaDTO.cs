@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Application.DTOs
 {
-    class ProyectoDTO
+    public class MarcaDTO
     {
+        public Guid MarcaId { get; set; }
+        public string MarcaNombre { get; set; }
     }
 }
